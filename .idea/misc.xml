@@ -8,7 +8,15 @@
         <entry key="..\:/Repos/ECS198F-AndroidCourse2022/FoodTruckApp-Stage2StarterCode/app/src/main/res/layout/food_truck_list_item.xml" value="0.22327898550724637" />
         <entry key="..\:/Repos/ECS198F-AndroidCourse2022/FoodTruckApp-Stage2StarterCode/app/src/main/res/layout/fragment_food_truck_detail.xml" value="0.1" />
         <entry key="..\:/Repos/ECS198F-AndroidCourse2022/FoodTruckApp-Stage2StarterCode/app/src/main/res/layout/fragment_food_truck_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_food_truck_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/food_item.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/food_truck_list_item.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/food_truck_review.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_food_truck_detail.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_food_truck_list.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_food_truck_menu.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_food_truck_reviews.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/truck_review.xml" value="0.335" />
       </map>
     </option>
   </component>
