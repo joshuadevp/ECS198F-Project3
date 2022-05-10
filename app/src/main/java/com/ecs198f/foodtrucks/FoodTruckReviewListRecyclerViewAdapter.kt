@@ -25,7 +25,7 @@ class FoodTruckReviewListRecyclerViewAdapter(private var items: List<FoodTruckRe
             holder.binding.apply {
                 foodTruckReviewName.text = it.authorName
                 foodTruckReviewComment.text = it.content
-                Glide.with(root).load(it.imageUrls).into(foodTruckReviewImage)
+                //Glide.with(root).load(it.imageUrls).into(foodTruckReviewImage) Images feature removed
             }
         }
     }

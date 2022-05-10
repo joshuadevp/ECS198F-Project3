@@ -6,5 +6,5 @@ data class FoodTruckReview(
      val authorName :  String ,
      val authorAvatarUrl :  String ,
      val content :  String ,
-     val imageUrls : String,
+     val imageUrls : List<String>?,
 )
