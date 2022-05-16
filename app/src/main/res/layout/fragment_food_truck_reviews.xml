@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FoodTruckReviewsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/foodTruckReviewsRecyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/foodTruckReviewsSignInButton"
+            android:layout_width="278dp"
+            android:layout_height="67dp"
+            android:text="Google Sign In"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodTruckReviewsRecyclerView" />
+
+        <Button
+            android:id="@+id/foodTruckReviewsPostButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodTruckReviewsRecyclerView" />
+
+        <EditText
+            android:id="@+id/foodTruckReviewsInput"
+            android:layout_width="316dp"
+            android:layout_height="58dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/foodTruckReviewsPostButton"
+            app:layout_constraintEnd_toStartOf="@+id/foodTruckReviewsPostButton"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/foodTruckReviewsPostButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodTruckReviewsRecyclerView"
+            android:layout_width="410dp"
+            android:layout_height="664dp"
+            android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

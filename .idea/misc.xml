@@ -15,7 +15,7 @@
         <entry key="app/src/main/res/layout/fragment_food_truck_detail.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_food_truck_list.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_food_truck_menu.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/fragment_food_truck_reviews.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_food_truck_reviews.xml" value="0.25" />
         <entry key="app/src/main/res/layout/truck_review.xml" value="0.335" />
       </map>
     </option>
