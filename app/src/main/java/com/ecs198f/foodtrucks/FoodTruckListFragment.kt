@@ -1,12 +1,15 @@
 package com.ecs198f.foodtrucks
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckListBinding
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,17 +29,25 @@ class FoodTruckListFragment : Fragment() {
 
         (requireActivity() as MainActivity).apply {
             title = "Food Trucks"
-
+            var truckDao = db.truckDao()
             foodTruckService.listFoodTrucks().enqueue(object : Callback<List<FoodTruck>> {
                 override fun onResponse(
                     call: Call<List<FoodTruck>>,
                     response: Response<List<FoodTruck>>
                 ) {
-                    recyclerViewAdapter.updateItems(response.body()!!)
+                    var body = response.body()
+                    recyclerViewAdapter.updateItems(body!!)
+                    lifecycleScope.launch {
+                        truckDao.removeAllTruck()
+                        truckDao.addTruck(body!!)
+                    }
                 }
 
                 override fun onFailure(call: Call<List<FoodTruck>>, t: Throwable) {
-                    throw t
+                    lifecycleScope.launch {
+                        recyclerViewAdapter.updateItems(truckDao.listAllTrucks())
+                        Log.i("tag", truckDao.listAllTrucks().toString());
+                    }
                 }
             })
         }

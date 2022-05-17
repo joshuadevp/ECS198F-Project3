@@ -14,9 +14,8 @@ import java.lang.reflect.Type
 import java.time.LocalDateTime
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var db : AppDatabase //= Room.databaseBuilder(applicationContext, AppDatabase::class.java, "truck-db").build()
-    private lateinit var truckDao : FoodTruckDao
-    private lateinit var itemDao : FoodItemDao
+    lateinit var db : AppDatabase //= Room.databaseBuilder(applicationContext, AppDatabase::class.java, "truck-db").build()
+
 
     private val gson = GsonBuilder()
         .registerTypeAdapter(LocalDateTime::class.java, object : JsonDeserializer<LocalDateTime> {

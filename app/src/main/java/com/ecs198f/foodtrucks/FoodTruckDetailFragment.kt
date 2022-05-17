@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.ecs198f.foodtrucks.databinding.FragmentFoodTruckDetailBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,17 +53,24 @@ class FoodTruckDetailFragment : Fragment() {
 
             (requireActivity() as MainActivity).apply {
                 title = it.name
-
+                var itemDao = db.itemDao()
                 foodTruckService.listFoodItems(it.id).enqueue(object : Callback<List<FoodItem>> {
                     override fun onResponse(
                         call: Call<List<FoodItem>>,
                         response: Response<List<FoodItem>>
                     ) {
-                        recyclerViewAdapter.updateItems(response.body()!!)
+                        var body = response.body()
+                        recyclerViewAdapter.updateItems(body!!)
+                        lifecycleScope.launch {
+                            itemDao.removeItem(it.id)
+                            itemDao.addItem(body!!)
+                        }
                     }
 
                     override fun onFailure(call: Call<List<FoodItem>>, t: Throwable) {
-                        throw t
+                        lifecycleScope.launch {
+                            recyclerViewAdapter.updateItems(itemDao.listItemsOfTruck(it.id))
+                        }
                     }
                 })
             }

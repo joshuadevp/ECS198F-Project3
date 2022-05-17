@@ -7,7 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface FoodTruckDao {
-    @Query("SELECT * FROM truck")
+    @Query("SELECT * FROM foodTruck")
     suspend fun listAllTrucks(): List<FoodTruck>
 
     @Insert
@@ -19,5 +19,6 @@ interface FoodTruckDao {
     @Delete
     suspend fun removeTruck (truck : FoodTruck)
 
-
+    @Query("DELETE FROM foodTruck")
+    suspend fun removeAllTruck()
 }

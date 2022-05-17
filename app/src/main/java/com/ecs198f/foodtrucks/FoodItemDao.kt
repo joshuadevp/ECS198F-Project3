@@ -7,10 +7,10 @@ import androidx.room.Query
 
 @Dao
 interface FoodItemDao {
-    @Query("SELECT * FROM item")
-    suspend fun listAllItems(): List<FoodTruck>
+    @Query("SELECT * FROM foodItem")
+    suspend fun listAllItems(): List<FoodItem>
 
-    @Query("SELECT * FROM item WHERE truckId=:truckId")
+    @Query("SELECT * FROM foodItem WHERE truckId=:truckId")
     suspend fun listItemsOfTruck(truckId: String): List<FoodItem>
 
     @Insert
@@ -22,6 +22,7 @@ interface FoodItemDao {
     @Delete
     suspend fun removeItem(item : FoodItem)
 
-    @Query("DELETE FROM item WHERE truckId=:truckId")
+    @Query("DELETE FROM foodItem WHERE truckId=:truckId")
     suspend fun removeItem(truckId : String)
+
 }
