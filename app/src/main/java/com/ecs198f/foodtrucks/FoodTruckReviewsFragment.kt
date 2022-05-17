@@ -65,7 +65,7 @@ class FoodTruckReviewsFragment(private val foodTruck: FoodTruck) : Fragment() {
 
 
                             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                                throw t
+                                //throw t
                             }
                         })
                 }
@@ -85,7 +85,7 @@ class FoodTruckReviewsFragment(private val foodTruck: FoodTruck) : Fragment() {
                         }
 
                         override fun onFailure(call: Call<List<FoodTruckReview>>, t: Throwable) {
-                            throw t
+                            //throw t
                         }
                     })
             }

@@ -40,7 +40,7 @@ class FoodTruckMenuFragment(private val foodTruck: FoodTruck) : Fragment() {
                 }
 
                 override fun onFailure(call: Call<List<FoodItem>>, t: Throwable) {
-                    throw t
+                    //throw t
                 }
             })
         }
