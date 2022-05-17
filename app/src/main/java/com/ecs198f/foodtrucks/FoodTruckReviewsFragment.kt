@@ -54,17 +54,17 @@ class FoodTruckReviewsFragment(private val foodTruck: FoodTruck) : Fragment() {
             foodTruckReviewsPostButton.setOnClickListener {
                 val text = foodTruckReviewsInput.getText().toString()
                 (requireActivity() as MainActivity).apply {
-                    foodTruckService.postFoodTruckReview(foodTruck.id, token, PostReview(text))
-                        .enqueue(object : Callback<PostReview> {
+                    foodTruckService.postFoodTruckReview(foodTruck.id, "Bearer " + token, PostReview(text))
+                        .enqueue(object : Callback<Unit> {
                             override fun onResponse(
-                                call: Call<PostReview>,
-                                response: Response<PostReview>
+                                call: Call<Unit>,
+                                response: Response<Unit>
                             ) {
                                 Log.d("RESPONSE", response.code().toString())
                             }
 
 
-                            override fun onFailure(call: Call<PostReview>, t: Throwable) {
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
                                 throw t
                             }
                         })
@@ -130,6 +130,7 @@ class FoodTruckReviewsFragment(private val foodTruck: FoodTruck) : Fragment() {
     private fun updateUI(account: GoogleSignInAccount?){
         if(account != null) {
             token = account.idToken!!
+            Log.d("TOKEN",token)
             binding.apply {
                 foodTruckReviewsSignInButton.setVisibility(View.GONE)
                 foodTruckReviewsPostButton.setVisibility(View.VISIBLE)
